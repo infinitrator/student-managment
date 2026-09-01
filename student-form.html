@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Добавление и редактирование студента" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'self'"
+    />
+    <title>Студенты — форма</title>
+    <link rel="icon" href="assets/cat-favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="module" src="js/form.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="Управление студентами — главная"
+          ><span class="brand-mark">СУ</span
+          ><span
+            ><strong>Студенты</strong><small>управление заселением</small></span
+          ></a
+        >
+        <nav class="main-nav" aria-label="Главная навигация">
+          <a href="index.html">Список</a
+          ><a class="active" href="student-form.html" aria-current="page"
+            >Добавить</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="container narrow main-content" id="main-content">
+      <a class="back-link" id="back-link" href="index.html"
+        >← Вернуться к списку</a
+      >
+      <section class="page-card">
+        <div class="card-heading">
+          <p class="eyebrow">Карточка студента</p>
+          <h1 id="form-title">Новый студент</h1>
+          <p>Поля со звёздочкой обязательны.</p>
+        </div>
+        <form id="student-form" autocomplete="off" novalidate>
+          <div class="form-grid">
+            <div class="form-field wide">
+              <label for="full-name"
+                >ФИО <span aria-hidden="true">*</span></label
+              ><input
+                id="full-name"
+                type="text"
+                required
+                minlength="5"
+                maxlength="120"
+                pattern="[A-Za-zА-Яа-яЁё'’\-\s]+"
+                placeholder="Иванов Иван Иванович"
+                aria-describedby="full-name-help full-name-error"
+              /><small id="full-name-help">Минимум фамилия и имя.</small
+              ><span
+                class="field-error"
+                id="full-name-error"
+                aria-live="polite"
+              ></span>
+            </div>
+            <div class="form-field">
+              <label for="group">Группа <span aria-hidden="true">*</span></label
+              ><input
+                id="group"
+                type="text"
+                required
+                minlength="2"
+                maxlength="20"
+                pattern="[A-Za-zА-Яа-яЁё0-9\-]+"
+                placeholder="P3212"
+                aria-describedby="group-error"
+              /><span
+                class="field-error"
+                id="group-error"
+                aria-live="polite"
+              ></span>
+            </div>
+            <div class="form-field">
+              <label for="isu-id"
+                >ИСУ ID <span aria-hidden="true">*</span></label
+              ><input
+                id="isu-id"
+                type="number"
+                required
+                min="1"
+                max="9999999"
+                step="1"
+                inputmode="numeric"
+                placeholder="368214"
+                aria-describedby="isu-id-error"
+              /><span
+                class="field-error"
+                id="isu-id-error"
+                aria-live="polite"
+              ></span>
+            </div>
+            <div class="form-field">
+              <label for="dormitory"
+                >Общежитие <span aria-hidden="true">*</span></label
+              ><input
+                id="dormitory"
+                type="number"
+                required
+                min="1"
+                max="30"
+                step="1"
+                inputmode="numeric"
+                placeholder="8"
+                aria-describedby="dormitory-error"
+              /><span
+                class="field-error"
+                id="dormitory-error"
+                aria-live="polite"
+              ></span>
+            </div>
+            <div class="form-field">
+              <label for="room">Комната <span aria-hidden="true">*</span></label
+              ><input
+                id="room"
+                type="text"
+                required
+                maxlength="8"
+                pattern="[0-9]{1,4}[A-Za-zА-Яа-яЁё]?"
+                placeholder="412"
+                aria-describedby="room-error"
+              /><span
+                class="field-error"
+                id="room-error"
+                aria-live="polite"
+              ></span>
+            </div>
+            <div class="form-field">
+              <label for="settlement-end"
+                >Срок заселения <span aria-hidden="true">*</span></label
+              ><input
+                id="settlement-end"
+                type="date"
+                required
+                min="2000-01-01"
+                max="2100-12-31"
+                aria-describedby="settlement-end-error"
+              /><span
+                class="field-error"
+                id="settlement-end-error"
+                aria-live="polite"
+              ></span>
+            </div>
+            <div class="form-field wide">
+              <label class="checkbox-label"
+                ><input id="is-foreign" type="checkbox" /><span
+                  ><strong>Иностранный студент</strong
+                  ><small
+                    >Отметьте, если студент прибыл из другой страны.</small
+                  ></span
+                ></label
+              >
+            </div>
+            <div class="form-field wide">
+              <label for="notes">Заметки</label
+              ><textarea
+                id="notes"
+                rows="5"
+                maxlength="500"
+                placeholder="Дополнительная информация"
+                aria-describedby="notes-error notes-counter"
+              ></textarea>
+              <div class="textarea-footer">
+                <span
+                  class="field-error"
+                  id="notes-error"
+                  aria-live="polite"
+                ></span
+                ><small id="notes-counter">0 / 500</small>
+              </div>
+            </div>
+          </div>
+          <div class="form-alert" id="form-alert" role="alert" hidden></div>
+          <div class="form-actions">
+            <a
+              class="button button-secondary"
+              id="cancel-link"
+              href="index.html"
+              >Отмена</a
+            ><button
+              class="button button-primary"
+              id="save-button"
+              type="submit"
+            >
+              Сохранить студента
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

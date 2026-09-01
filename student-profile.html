@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Подробный профиль студента" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'self'"
+    />
+    <title>Студенты — профиль</title>
+    <link rel="icon" href="assets/cat-favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="module" src="js/profile.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="Управление студентами — главная"
+          ><span class="brand-mark">СУ</span
+          ><span
+            ><strong>Студенты</strong><small>управление заселением</small></span
+          ></a
+        >
+        <nav class="main-nav" aria-label="Главная навигация">
+          <a class="active" href="index.html">Список</a
+          ><a href="student-form.html">Добавить</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container narrow main-content" id="main-content">
+      <a class="back-link" href="index.html">← Вернуться к списку</a>
+      <div id="notice" class="notice" role="status" hidden></div>
+      <section class="profile-card" id="profile-card">
+        <div class="profile-head">
+          <div class="avatar avatar-large" id="avatar"></div>
+          <div>
+            <p class="eyebrow">Профиль студента</p>
+            <h1 id="student-name">Профиль студента</h1>
+            <span class="group-pill" id="student-group"></span>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-field">
+            <span>ИСУ ID</span><strong id="student-isu"></strong>
+          </div>
+          <div class="profile-field">
+            <span>Статус</span><strong id="student-status"></strong>
+          </div>
+          <div class="profile-field">
+            <span>Общежитие</span><strong id="student-dorm"></strong>
+          </div>
+          <div class="profile-field">
+            <span>Комната</span><strong id="student-room"></strong>
+          </div>
+          <div class="profile-field wide">
+            <span>Срок заселения</span><strong id="student-date"></strong>
+          </div>
+          <div class="profile-field wide">
+            <span>Заметки</span>
+            <p id="student-notes"></p>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <a class="button button-secondary" href="index.html">К списку</a
+          ><a
+            class="button button-primary"
+            id="edit-link"
+            href="student-form.html"
+            >Редактировать</a
+          >
+        </div>
+      </section>
+      <section class="not-found" id="not-found" hidden>
+        <h1>Студент не найден</h1>
+        <p>Возможно, запись была удалена или ссылка неправильная.</p>
+        <a class="button button-primary" href="index.html"
+          >Вернуться к списку</a
+        >
+      </section>
+    </main>
+  </body>
+</html>
